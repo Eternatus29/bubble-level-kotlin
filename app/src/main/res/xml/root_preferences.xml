@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ root_preferences.xml
+
+  -->
+
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreferenceCompat
+        app:key="prefKeepScreenOn"
+        app:title="@string/pref_keep_screen_on"
+        app:summary="@string/pref_keep_screen_on_summary"
+        app:defaultValue="true"
+        app:icon="@drawable/ic_wb_incandescent_24"/>
+
+    <ListPreference
+        app:key="prefUnitOfMeasurement"
+        android:summary="%s"
+        app:title="@string/pref_unit_of_measurement"
+        android:entries="@array/UMAngles"
+        android:entryValues="@array/UMAnglesValues"
+        app:defaultValue="0"/>
+
+    <Preference
+        app:key="prefCalibration"
+        app:title="@string/title_activity_calibration"
+        app:summary="@string/pref_calibration_summary_notcalibrated"
+        app:allowDividerAbove="true"
+        app:icon="@drawable/ic_calibration_24"
+        app:defaultValue="false">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="eu.basicairdata.clinometer"
+            android:targetClass="eu.basicairdata.clinometer.CalibrationActivity" />
+    </Preference>
+
+    <Preference
+        app:key="prefResetCalibration"
+        app:title="@string/pref_calibration_reset"
+        app:summary="@string/pref_calibration_reset_summary"
+        app:defaultValue="false"/>
+
+
+
+    <SwitchPreferenceCompat
+        app:key="prefAutoLock"
+        app:allowDividerAbove="true"
+        app:icon="@drawable/ic_lock_24"
+        app:title="@string/pref_autolocking"
+        app:summary="@string/pref_autolocking_summary"
+        app:defaultValue="false"/>
+
+    <SwitchPreferenceCompat
+        app:key="prefAutoLockHorizonCheck"
+        app:icon="@drawable/ic_vertical_align_center_24"
+        app:dependency="prefAutoLock"
+        app:title="@string/pref_autolocking_horizon"
+        app:summary="@string/pref_autolocking_horizon_summary"
+        app:defaultValue="true"/>
+
+    <SeekBarPreference
+        app:key="prefAutoLockPrecision"
+        app:dependency="prefAutoLock"
+        app:title="@string/pref_autolocking_precision"
+        android:max="1000"
+        app:defaultValue="500"/>
+
+
+
+    <Preference
+        app:key="prefCameraPermission"
+        app:allowDividerAbove="true"
+        app:icon="@drawable/ic_image_24"
+        app:title="@string/pref_cameramode_camera_to_use"
+        app:summary="@string/pref_cameramode_no_permission_to_access"
+        app:defaultValue="false" />
+
+    <ListPreference
+        app:key="prefCamera"
+        app:allowDividerAbove="true"
+        app:icon="@drawable/ic_image_24"
+        android:summary="%s"
+        app:title="@string/pref_cameramode_camera_to_use"
+        app:defaultValue="0"/>
+
+    <SeekBarPreference
+        app:key="prefExposureCompensation"
+        app:title="@string/pref_cameramode_exposure_compensation"
+        android:enabled="false"
+        android:max="200"
+        app:min="-200"
+        app:defaultValue="0"/>
+
+
+
+    <Preference
+        app:key="prefAbout"
+        app:allowDividerAbove="true"
+        app:title="@string/pref_about"
+        app:summary="@string/pref_about_summary"
+        app:defaultValue="false"
+        app:icon="@drawable/ic_info_24"/>
+
+    <Preference
+        app:key="prefOnlineHelp"
+        app:title="@string/pref_online_help"
+        app:summary="@string/pref_online_help_summary"
+        app:defaultValue="false"
+        app:icon="@drawable/ic_language_24"/>
+
+
+    <!--</PreferenceCategory>
+
+    <PreferenceCategory
+    android:title="@string/titleEtcSetup">
+    <Preference
+        android:key="renameCourses"
+        android:title="@string/titleRenameCourses"
+        android:summary="@string/textRenameDisplayedCoursesNames">
+        <intent
+             android:action="android.intent.action.VIEW"
+             android:targetPackage="my.notifier.ui"
+             android:targetClass="my.notifier.ui.EditCoursesNamesActivity" />
+    </Preference>
+.....
+</PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <ListPreference
+            app:key="prefCalibration"
+            app:title="@string/pref_calibration"
+            app:defaultValue="0"
+            app:icon="@drawable/ic_calibration_white_24dp"
+            app:entries="@array/calibration_entries"
+            app:entryValues="@array/calibration_values"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="prefCalibration"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>-->
+
+</PreferenceScreen>
